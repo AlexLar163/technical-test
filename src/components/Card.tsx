@@ -1,18 +1,29 @@
-import { DataRickAndMortyAPI } from "../interfaces/dataRickAndMortyAPI.interface";
+import Link from "next/link";
+import { DataRickAndMortyInterface } from "../interfaces/dataRickAndMortyInterface";
 
 const Card = (props: any) => {
   const { data } = props;
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden">
-      <img src={data.image} alt="" />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{data.name}</div>
-        <p className="text-gray-700 text-base">{data.status}</p>
+    <Link href={`/card-detail/${data.id}`}>
+      <div
+        className="
+        bg-white 
+        shadow-md 
+        rounded-lg 
+        overflow-hidden 
+        w-fit 
+        m-auto 
+        hover:shadow-slate-400
+        hover:bg-slate-50
+        cursor-pointer
+        transition 
+        ease-in-out 
+        duration-300"
+      >
+        <img src={data.image} alt="" />
+        <p className="font-bold text-xl my-2 text-center">{data.name}</p>
       </div>
-      <div className="px-6 py-4">
-        <p className="text-gray-700 text-base">{data.species}</p>
-      </div>
-    </div>
+    </Link>
   );
 };
 export default Card;
