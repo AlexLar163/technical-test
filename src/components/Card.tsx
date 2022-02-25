@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { DataRickAndMortyInterface } from "../interfaces/dataRickAndMortyInterface";
 
 const Card = (props: any) => {
   const { data } = props;
@@ -21,7 +20,7 @@ const Card = (props: any) => {
         duration-300"
       >
         <img src={data.image} alt="" />
-        <p className="font-bold text-xl my-2 text-center">{data.name}</p>
+        <p className="font-bold text-xl my-2 text-center text-ellipsis overflow-hidden">{data.name}</p>
       </div>
     </Link>
   );
