@@ -1,14 +1,13 @@
 import Link from "next/link";
 
-const Header = (props: any) => {
+const Header = () => {
   return (
     <header className=" bg-purple-100">
       <div
         className="
-      container 
-      flex 
-      justify-center 
-      mx-auto"
+        flex 
+        justify-center 
+        mx-auto"
       >
         <Link href="/">
           <img

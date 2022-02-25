@@ -4,7 +4,7 @@ const Pagination = () => {
   const buttons = [1, 2, 3, 4, 5, 6];
   return (
     <div className="flex p-2 justify-center space-x-2">
-      {buttons.map((button: any) => (
+      {buttons.map((button: number) => (
         <Link key={button} href={`/characters/${button}`}>
           <span className="
           p-3 

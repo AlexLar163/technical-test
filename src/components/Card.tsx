@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { CharacterInterface } from "../interfaces/characterInterface";
 
-const Card = (props: any) => {
+type Props = {
+  data: CharacterInterface;
+};
+const Card = (props: Props) => {
   const { data } = props;
   return (
     <Link href={`/detail/${data.id}`}>
@@ -20,7 +24,9 @@ const Card = (props: any) => {
         duration-300"
       >
         <img src={data.image} alt="" />
-        <p className="font-bold text-xl my-2 text-center text-ellipsis overflow-hidden">{data.name}</p>
+        <p className="font-bold text-xl my-2 text-center text-ellipsis overflow-hidden">
+          {data.name}
+        </p>
       </div>
     </Link>
   );

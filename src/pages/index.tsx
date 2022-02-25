@@ -4,7 +4,7 @@ import Characters from "./characters/[page]";
 const home = () => {
   return (
     <ClientOnly>
-      <Characters></Characters>
+      <Characters page="1"></Characters>
     </ClientOnly>
   );
 };
