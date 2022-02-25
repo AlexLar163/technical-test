@@ -6,7 +6,7 @@ const Card = (props: any) => {
     <Link href={`/card-detail/${data.id}`}>
       <div
         className="
-        bg-white 
+        bg-orange-200 
         shadow-md 
         rounded-lg 
         overflow-hidden 

@@ -1,28 +1,24 @@
 import Link from "next/link";
 
-const Header = () => {
+const Header = (props: any) => {
   return (
     <header className=" bg-purple-100">
-      <div className="flex justify-center flex-col md:justify-between md:flex-row container mx-auto">
-        <img
-          className="mx-auto md:mx-0"
-          src="https://pngset.com/images/rick-et-morty-rick-fan-art-rick-icon-graphics-label-text-doodle-transparent-png-212312.png"
-          width="50px"
-          height="50px"
-          alt="rick.png"
-        />
-        <nav className="flex justify-center space-x-4 ">
-          {[
-            ["Inicio", "/"],
-            ["Favoritos", "/card-detail"],
-          ].map(([title, url]) => (
-            <Link key={title} href={url}>
-              <span className="rounded-lg px-3 py-2 text-slate-700 font-bold text-lg hover:bg-green-200">
-                {title}
-              </span>
-            </Link>
-          ))}
-        </nav>
+      <div
+        className="
+      container 
+      flex 
+      justify-center 
+      mx-auto"
+      >
+        <Link href="/">
+          <img
+            className="mx-auto md:mx-5 h-16 w-auto cursor-pointer"
+            src="https://www.pngall.com/wp-content/uploads/4/Rick-And-Morty-PNG-Images.png"
+            width="50px"
+            height="50px"
+            alt="rick.png"
+          />
+        </Link>
       </div>
     </header>
   );
