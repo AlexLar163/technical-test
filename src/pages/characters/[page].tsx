@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-import { useLazyQuery } from "@apollo/client";
+import { Context, useLazyQuery } from "@apollo/client";
 import getAllCharacters from "../../graphql/queries/getAllCharacters";
 import CardLoading from "../../skeleton/CardLoading";
 import Card from "../../components/Card";
 import Pagination from "../../components/Pagination";
 import { CharacterInterface } from "../../interfaces/characterInterface";
 
-export default function Characters(props: any) {
+type Props = {
+  page: string;
+} 
+
+export default function Characters(props: Props) {
   const page = parseInt(props.page) || 1;
   const [getCharacters, results] = useLazyQuery(getAllCharacters);
   const [characters, setCharacters] = useState([] as Array<CharacterInterface>);
@@ -28,8 +32,6 @@ export default function Characters(props: any) {
       ) : (
         <div
           className="
-      container
-      sm
       grid 
       grid-cols-1 
       sm:grid-cols-2 
@@ -53,7 +55,7 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
-export async function getStaticProps(context: any) {
+export async function getStaticProps(context: Context) {
   const { params } = context;
   return { props: { ...params } };
 }

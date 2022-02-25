@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { CharacterInterface } from "../../interfaces/characterInterface";
-import { useLazyQuery } from "@apollo/client";
+import { Context, useLazyQuery } from "@apollo/client";
 import getOneCharacter from "../../graphql/queries/getOneCharacter";
 import CardLoading from "../../skeleton/CardLoading";
 import { useRouter } from "next/router";
 import Detail from "../../components/Detail";
 import TableDetail from "../../components/TableDetail";
 
-export default function CardDetail(props: any) {
+type Props = {
+  id: number;
+};
+
+export default function CardDetail(props: Props) {
   const id = props.id;
   const [getCharacter, result] = useLazyQuery(getOneCharacter);
   const [character, setCharacter] = useState({} as CharacterInterface);
@@ -46,7 +50,7 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
-export async function getStaticProps(context: any) {
+export async function getStaticProps(context: Context) {
   const { params } = context;
   return { props: { ...params } };
 }
