@@ -21,8 +21,13 @@ export default function Characters(props: any) {
   return (
     <>
       <Pagination />
-      <div
-        className="
+      {characters.length === 0 ? (
+        <>
+          <CardLoading />
+        </>
+      ) : (
+        <div
+          className="
       container
       sm
       grid 
@@ -32,17 +37,12 @@ export default function Characters(props: any) {
       lg:grid-cols-4 
       xl:grid-cols-5 
       gap-5"
-      >
-        {characters.length === 0 ? (
-          <>
-            <CardLoading />
-          </>
-        ) : (
-          characters.map((char: CharacterInterface) => (
+        >
+          {characters.map((char: CharacterInterface) => (
             <Card key={`${char.name}-${char.id}`} data={char} />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
       <Pagination />
     </>
   );

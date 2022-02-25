@@ -1,13 +1,12 @@
 const CardLoading = () => {
   return (
-    <div className="h-40 bg-gradient-to-br ">
-      <div className="bg-white rounded shadow-2xl">
-        <div className="h-32 bg-gray-500 rounded-tr rounded-tl animate-pulse"></div>
-        <div className="p-5">
-          <div className="h-6 rounded-sm bg-gray-500 animate-pulse mb-4"></div>
-          <div className="grid grid-cols-4 gap-1"></div>
-        </div>
-      </div>
+    <div className="py-5  animate-spin">
+      <img
+        className="m-auto h-14 w-14 cursor-pointer"
+        src="https://pngset.com/images/rick-et-morty-rick-fan-art-rick-icon-graphics-label-text-doodle-transparent-png-212312.png"
+        alt="rick.png"
+      />
+      <p className="m-5 text-center font-semibold text-3xl animate-pulse text-orange-500">Loading ...</p>
     </div>
   );
 };

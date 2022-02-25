@@ -3,7 +3,7 @@ import Link from "next/link";
 const Card = (props: any) => {
   const { data } = props;
   return (
-    <Link href={`/card-detail/${data.id}`}>
+    <Link href={`/detail/${data.id}`}>
       <div
         className="
         bg-orange-200 

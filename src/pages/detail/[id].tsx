@@ -42,7 +42,7 @@ export default function CardDetail(props: any) {
 }
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { id: "" } }],
+    paths: [{ params: { id: "1" } }],
     fallback: true,
   };
 }
