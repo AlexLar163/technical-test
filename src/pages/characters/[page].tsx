@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useQuery, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import getAllCharacters from "../../graphql/queries/getAllCharacters";
 import CardLoading from "../../skeleton/CardLoading";
 import Card from "../../components/Card";
@@ -10,14 +10,13 @@ export default function Characters(props: any) {
   const page = parseInt(props.page) || 1;
   const [getCharacters, results] = useLazyQuery(getAllCharacters);
   const [characters, setCharacters] = useState([] as Array<CharacterInterface>);
-  // const [characters, setCharacters] = useState([] as Array<any>);
 
   useEffect(() => {
     getCharacters({ variables: { page: page } });
     if (results.data) {
       setCharacters(results.data.characters.results);
     }
-  }, [results.data,page]);
+  }, [results.data, page]);
 
   return (
     <>
@@ -37,20 +36,11 @@ export default function Characters(props: any) {
         {characters.length === 0 ? (
           <>
             <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
           </>
         ) : (
-          characters.map((char: CharacterInterface) => <Card key={`${char.name}-${char.id}`} data={char} />)
+          characters.map((char: CharacterInterface) => (
+            <Card key={`${char.name}-${char.id}`} data={char} />
+          ))
         )}
       </div>
       <Pagination />
