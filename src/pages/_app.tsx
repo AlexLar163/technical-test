@@ -18,7 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div
           className="
           container 
-          mx-auto "
+          mx-auto
+          px-5"
         >
           <Component {...pageProps} />
         </div>
